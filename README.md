@@ -146,10 +146,9 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS       
 
 - Container image: basically a template for our container
 -  How to buid your Docker image? There are two ways to buid:
-```
-a. Docker commit (image created via container - wrong way to create - several disvantages)
-b. Dockerfile (file to add a image following basic steps, seems a cake recipe)
-```
+1. Docker commit (image created via container - wrong way to create - several disvantages)
+2. Dockerfile (file to add a image following basic steps, seems a cake recipe)
+
 
 1.2. Let's create our first *Dockerfile* using a *nginx image* from *Dockerhub*:
 
