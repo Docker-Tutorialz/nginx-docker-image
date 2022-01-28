@@ -8,13 +8,13 @@
 
 ### `Installing Docker`
 
-1. Before you get started, please make sure you have Docker installed on your machine:
+1. Before you get started, please make sure you have `Docker` installed on your machine:
 
 ```
 curl -fsSl https://get.docker.com
 ```
 
-1.1. Make sure Docker service is running state:
+1.1. Make sure `Docker service` is running state:
 
 ```
 docker-tutorialz]#  systemctl status docker
@@ -27,13 +27,6 @@ docker-tutorialz]#  systemctl status docker
            └─4627 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 
 Jan 26 22:49:41 elliot01 dockerd[4627]: time="2022-01-26T22:49:41.146036873-03:00" level=info msg="Firewalld: interface docker_gwbridge already part of docke...returning"
-Jan 26 22:49:41 elliot01 dockerd[4627]: time="2022-01-26T22:49:41.599628089-03:00" level=info msg="Default bridge (docker0) is assigned with an IP address 17...P address"
-Jan 26 22:49:41 elliot01 dockerd[4627]: time="2022-01-26T22:49:41.792362351-03:00" level=info msg="Firewalld: interface docker0 already part of docker zone, returning"
-Jan 26 22:49:42 elliot01 dockerd[4627]: time="2022-01-26T22:49:42.097403857-03:00" level=info msg="Loading containers: done."
-Jan 26 22:49:42 elliot01 dockerd[4627]: time="2022-01-26T22:49:42.150425305-03:00" level=info msg="Docker daemon" commit=459d0df graphdriver(s)=devicemapper ...n=20.10.12
-Jan 26 22:49:42 elliot01 dockerd[4627]: time="2022-01-26T22:49:42.168178372-03:00" level=error msg="cluster exited with error: error while loading TLS certificate in /...
-Jan 26 22:49:42 elliot01 dockerd[4627]: time="2022-01-26T22:49:42.168284653-03:00" level=error msg="swarm component could not be started" error="error while loading TL...
-Jan 26 22:49:42 elliot01 dockerd[4627]: time="2022-01-26T22:49:42.168340202-03:00" level=info msg="Daemon has completed initialization"
 Jan 26 22:49:42 elliot01 systemd[1]: Started Docker Application Container Engine.
 Jan 26 22:49:42 elliot01 dockerd[4627]: time="2022-01-26T22:49:42.231763910-03:00" level=info msg="API listen on /var/run/docker.sock"
 Hint: Some lines were ellipsized, use -l to show in full.
@@ -44,7 +37,7 @@ Hint: Some lines were ellipsized, use -l to show in full.
 1. Before we need test a container image to demonstrate a `docker container run` command:
 
 ```
-docker-tutorialz]# docker container run hello-world
+# docker container run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 2db29710123e: Pull complete
@@ -73,10 +66,10 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 ```
 
-1.1. List all Docker containers:
+1.1. List all `Docker` containers:
 
 ```
-docker-tutorialz]# docker container ls
+# docker container ls
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 [root@elliot01 docker-tutorialz]# docker container ls -a
 CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS                     PORTS     NAMES
@@ -88,24 +81,24 @@ ea3d6cba32ce   nginx:latest    "/docker-entrypoint.…"   2 months ago    Exited
 c00037dfdb53   nginx:latest    "/docker-entrypoint.…"   2 months ago    Exited (0) 2 months ago              amaury.1.vqdl6rxuu0x30o6jchlh66iqt
 ```
 
-1.2. Set a name for my Docker container: 
+1.2. Now another example about how you can set a name for the `Docker` container: 
 
 ```
- docker-tutorialz]# docker container run --name amaury hello-world
+ # docker container run --name amaury hello-world
 ```
 
-1.3. List the containers:
+1.3. Listing the containers:
 
 ```
-docker-tutorialz]# docker container ls -a
+# docker container ls -a
 CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS                     PORTS     NAMES
 cead5b46cf1e   hello-world     "/hello"                 5 seconds ago   Exited (0) 3 seconds ago             amaury
 ```
 
-1.4. Other way to create a new container using `-ti` option to interatic with container:
+1.4. Other way to create a new `Docker` container using `-ti` option to interatic with container:
 
 ```
-docker-tutorialz]# docker container run -ti ubuntu bash
+# docker container run -ti ubuntu bash
 Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
 ea362f368469: Pull complete
@@ -114,19 +107,20 @@ Status: Downloaded newer image for ubuntu:latest
 root@804841b67ea6:/#
 ```
 
-1.5. Creating a MongoDB on Docker container:
+1.5. Creating a MongoDB container:
+
 - before we need check the Dockerhub about [MongoDB](https://hub.docker.com/_/mongo):
 
 ```
-elliot01 ~]# docker container run -d -e MONGO_INITDB_ROOT_USERNAME=mongouser -e MONGO_INITDB_ROOT_PASSWORD=mongopwd mongo
+# docker container run -d -e MONGO_INITDB_ROOT_USERNAME=mongouser -e MONGO_INITDB_ROOT_PASSWORD=mongopwd mongo
 2833a64a61b6637c77e4df70cdf2442ccd56b19dc1d63037307cb69497b2178a
 ```
 
-1.6. Now we need access this container, you can do this:
+1.6. Now we need access this container, you can do this below:
 
 - port-bind (connection port with container, we need create a port-bind, get a local port of my machine and link with container port)
-- Options: 
 ```
+Options:
 -d - execute container in background 
 -p - port-bind
 -e - environment variables 
@@ -134,14 +128,14 @@ elliot01 ~]# docker container run -d -e MONGO_INITDB_ROOT_USERNAME=mongouser -e 
 - Running the command again using more options:
 
 ```
-elliot01 ~]# docker container run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongouser -e MONGO_INITDB_ROOT_PASSWORD=mongopwd mongo
+# docker container run -d -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=mongouser -e MONGO_INITDB_ROOT_PASSWORD=mongopwd mongo
 99d012a1ceb7ed598230fd4a11efb3c05d6404c61a1503c32d3a3ab7245bc8bb
 ```
 
-- List the container:
+- Listing the container:
 
 ```
-elliot01 ~]# docker container ls
+# docker container ls
 CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                           NAMES
 99d012a1ceb7   mongo     "docker-entrypoint.s…"   26 seconds ago   Up 23 seconds   0.0.0.0:27017->27017/tcp, :::27017->27017/tcp   elated_hawking
 ```
