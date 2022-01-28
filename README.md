@@ -165,7 +165,25 @@ RUN echo '<h1>Hello world!</h1>' > /usr/share/nginx/html/index.html
 1.4. Let's create our *Docker image* based on *Dockerfile*:
 
 ```
-$ docker container run -d -p 81:80 amauryborgesouza/nginx-app:v1
+# docker build -t amauryborgesouza/nginx-app:v1 .
+Sending build context to Docker daemon  2.048kB
+Step 1/2 : FROM nginx:latest
+latest: Pulling from library/nginx
+5eb5b503b376: Pull complete
+1ae07ab881bd: Pull complete
+78091884b7be: Pull complete
+091c283c6a66: Pull complete
+55de5851019b: Pull complete
+b559bad762be: Pull complete
+Digest: sha256:2834dc507516af02784808c5f48b7cbe38b8ed5d0f4837f16e78d00deb7e7767
+Status: Downloaded newer image for nginx:latest
+ ---> c316d5a335a5
+Step 2/2 : RUN echo '<h1>Hello world!</h1>' > /usr/share/nginx/html/index.html
+ ---> Running in 088afc5ddbc9
+Removing intermediate container 088afc5ddbc9
+ ---> 8df1149ce9b1
+Successfully built 8df1149ce9b1
+Successfully tagged amauryborgesouza/nginx-app:v1
 ```
 
 ### `Listing the Docker image`
@@ -215,4 +233,13 @@ The push refers to repository [docker.io/amauryborgesouza/nginx-app]
 9a3a6af98e18: Mounted from library/nginx
 7d0ebbe3f5d2: Mounted from library/nginx
 v1: digest: sha256:1fb2cd964f3b31cb8edea42a46ab4b5c20e937e1b68fbe218d0258b273d868c6 size: 1777
+```
+
+### `Running the Docker container`
+
+ssasas
+
+```
+# docker container run -d -p 81:80 amauryborgesouza/nginx-app:v1
+9e918c0c25ebd123fff2903fc339602dd4e6b95968bb8ba2bad9b2c664d3ea63
 ```
