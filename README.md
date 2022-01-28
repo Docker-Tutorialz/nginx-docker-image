@@ -8,13 +8,13 @@
 
 ### `Installing Docker`
 
-1. Before you get started, please make sure you have `Docker` installed on your machine:
+1. Before you get started, please make sure you have *Docker* installed on your machine:
 
 ```
 curl -fsSl https://get.docker.com
 ```
 
-1.1. Make sure `Docker service` is running state:
+1.1. Make sure *Docker service* is running state:
 
 ```
 docker-tutorialz]#  systemctl status docker
@@ -66,7 +66,7 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 ```
 
-1.1. List all `Docker` containers:
+1.1. List all *Docker* containers:
 
 ```
 # docker container ls
@@ -81,7 +81,7 @@ ea3d6cba32ce   nginx:latest    "/docker-entrypoint.…"   2 months ago    Exited
 c00037dfdb53   nginx:latest    "/docker-entrypoint.…"   2 months ago    Exited (0) 2 months ago              amaury.1.vqdl6rxuu0x30o6jchlh66iqt
 ```
 
-1.2. Now another example about how you can set a name for the `Docker` container: 
+1.2. Now another example about how you can set a name for the *Docker* container: 
 
 ```
  # docker container run --name amaury hello-world
@@ -95,7 +95,7 @@ CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS  
 cead5b46cf1e   hello-world     "/hello"                 5 seconds ago   Exited (0) 3 seconds ago             amaury
 ```
 
-1.4. Other way to create a new `Docker` container using `-ti` option to interatic with container:
+1.4. Other way to create a new *Docker* container using `-ti` option to interatic with container:
 
 ```
 # docker container run -ti ubuntu bash
@@ -107,7 +107,7 @@ Status: Downloaded newer image for ubuntu:latest
 root@804841b67ea6:/#
 ```
 
-1.5. Creating a MongoDB container:
+1.5. Creating a *MongoDB* container:
 
 - before we need check the Dockerhub about [MongoDB](https://hub.docker.com/_/mongo):
 
