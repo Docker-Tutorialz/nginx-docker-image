@@ -5,7 +5,7 @@
 - [Docker: Basic commands](#Docker-Basic-commands)
 - [Creating the Dockerfile](#Creating-the-Dockerfile)
 - [Listing the Docker image](#Listing-the-Docker-image)
-- [Login on Dockerhu](#Login-on-Dockerhu)
+- [Login on Dockerhub](#Login-on-Dockerhub)
 
 ### `Installing Docker`
 
