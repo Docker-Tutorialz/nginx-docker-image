@@ -5,6 +5,7 @@
 - [Docker: Basic commands](#Docker-Basic-commands)
 - [Creating the Dockerfile](#Creating-the-Dockerfile)
 - [Listing the Docker image](#Listing-the-Docker-image)
+- [Login on Dockerhu](#Login-on-Dockerhu)
 
 ### `Installing Docker`
 
@@ -181,4 +182,19 @@ fedora                       latest    b78af7a83692   8 weeks ago    153MB
 nginx                        <none>    87a94228f133   3 months ago   133MB
 hello-world                  latest    feb5d9fea6a5   4 months ago   13.3kB
 alpine                       <none>    14119a10abf4   5 months ago   5.59MB
+```
+
+### `Login on Dockerhub`
+
+Now we need authenticate on Dockerhub to push the *Docker image*:
+
+```
+# docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: amaury
+Password:
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
 ```
