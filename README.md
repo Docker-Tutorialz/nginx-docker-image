@@ -1,4 +1,4 @@
-## `Docker: The basis to build and push a Docker image for Dockerhub`
+## `Learn how you can build and push a Docker image for Dockerhub`
 
 ### `Table of contents`
 - [Installing Docker](#Installing-Docker)
