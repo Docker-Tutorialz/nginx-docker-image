@@ -109,7 +109,7 @@ root@804841b67ea6:/#
 
 1.5. Creating a *MongoDB* container:
 
-- before we need check the Dockerhub about [MongoDB](https://hub.docker.com/_/mongo):
+- before we need check the *Dockerhub* about [MongoDB](https://hub.docker.com/_/mongo):
 
 ```
 # docker container run -d -e MONGO_INITDB_ROOT_USERNAME=mongouser -e MONGO_INITDB_ROOT_PASSWORD=mongopwd mongo
@@ -140,79 +140,7 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS       
 99d012a1ceb7   mongo     "docker-entrypoint.s…"   26 seconds ago   Up 23 seconds   0.0.0.0:27017->27017/tcp, :::27017->27017/tcp   elated_hawking
 ```
 
-### `Using the NodeJS application to run locally on my machine`
-
-1.1. Before to start, you must clone the repository from [github.com/kubedev](https://github.com/KubeDev/api-produto)
-
-```
- git clone https://github.com/amaurybsouza/api-produto.git
-```
-
-1.2. Now you need install some packages like, `nodejs` and `npm`:
-
-```
-curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
-```
-
-1.3. Install `nodejs`:
-
-```
-# sudo yum install nodejs
-Plugins carregados: fastestmirror
-Loading mirror speeds from cached hostfile
- * base: mirror.ufscar.br
- * extras: mirror.ufscar.br
- * updates: mirror.ufscar.br
-nodesource                                                                                                                                         | 2.5 kB  00:00:00
-nodesource/x86_64/primary_db                                                                                                                       |  55 kB  00:00:01
-Resolvendo dependências
---> Executando verificação da transação
----> O pacote nodejs.x86_64 2:10.24.1-1nodesource será instalado
---> Resolução de dependências finalizada
-
-Dependências resolvidas
-
-==========================================================================================================================================================================
- Package                             Arq.                                Versão                                             Repo                                     Tam.
-==========================================================================================================================================================================
-Instalando:
- nodejs                              x86_64                              2:10.24.1-1nodesource                              nodesource                               20 M
-
-Resumo da transação
-==========================================================================================================================================================================
-Instalar  1 Package
-```
-
-1.4. Install some dependencies:
-
-```
- /src $ npm install
-npm WARN jornadakubernetes@1.0.0 No description
-npm WARN jornadakubernetes@1.0.0 No repository field.
-
-added 121 packages from 199 contributors and audited 121 packages in 4.13s
-
-3 packages are looking for funding
-  run `npm fund` for details
-
-found 1 moderate severity vulnerability
-  run `npm audit fix` to fix them, or `npm audit` for details
-```
-
-1.5. Run the application:
-
-```
-/src $ node app.js
-(node:21496) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
-(node:21496) [MONGODB DRIVER] Warning: Current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
-Servidor rodando na porta 8080
-```
-
-- To access the application, make sure you have Docker IP and putin your browser `http://192.168.1.128:8080/api-docs/`
-
-![nodejsapp](images/nodejs.png)
-
-### `Using the NodeJS application to run on container`
+### `Creating our *Dockerfile*`
 
 1.1. Now we will work using `Docker images` befores some concepts to start:
 
@@ -223,22 +151,18 @@ a. Docker commit (image created via container - wrong way to create - several di
 b. Dockerfile (file to add a image following basic steps, seems a cake recipe)
 ```
 
-1.2. Let's create our first `Dockerfile` using a `Node image` from Dockerhub:
+1.2. Let's create our first *Dockerfile* using a *nginx image* from *Dockerhub*:
 
-- First of all, check on Dockerhub the [node image](https://hub.docker.com/_/node).
+- First of all, check on *Dockerhub* the [nginx image](https://hub.docker.com/_/nginx).
 
-1.3. Let's create our `Dockerfile` as follow below:
+1.3. Let's create our *Dockerfile* as follow below:
 
 ```dockerfile
-FROM node
-WORKDIR /app
-COPY ./package*.json ./
-RUN npm install
-COPY ..
-CMD ["node", "app.js"]
+FROM nginx:latest
+RUN echo '<h1>Hello world!</h1>' > /usr/share/nginx/html/index.html
 ```
-1.4. Let's create our Docker image based on `Dockerfile`:
+1.4. Let's create our *Docker image* based on *Dockerfile*:
 
 ```
-$ docker build -t
+$ docker container run -d -p 81:80 amauryborgesouza/nginx-app:v1
 ```
