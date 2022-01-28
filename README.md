@@ -3,8 +3,8 @@
 ### `Table of contents`
 - [Installing Docker](#Installing-Docker)
 - [Docker: Basic commands](#Docker-Basic-commands)
-- [Test the NodeJS application to run locally](#Using-the-NodeJS-application-to-run-locally-on-my-machine)
-- [Run NodeJS application from container](#Using-the-NodeJS-application-to-run-on-container)
+- [Creating the Dockerfile](#Creating-the-Dockerfile)
+- [Listing the Docker image](#Listing-the-Docker-image)
 
 ### `Installing Docker`
 
@@ -140,7 +140,7 @@ CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS       
 99d012a1ceb7   mongo     "docker-entrypoint.s…"   26 seconds ago   Up 23 seconds   0.0.0.0:27017->27017/tcp, :::27017->27017/tcp   elated_hawking
 ```
 
-### `Creating our *Dockerfile*`
+### `Creating the Dockerfile`
 
 1.1. Now we will work using `Docker images` befores some concepts to start:
 
@@ -165,4 +165,21 @@ RUN echo '<h1>Hello world!</h1>' > /usr/share/nginx/html/index.html
 
 ```
 $ docker container run -d -p 81:80 amauryborgesouza/nginx-app:v1
+```
+
+### `Listing the Docker image`
+
+```
+# docker image ls
+REPOSITORY                   TAG       IMAGE ID       CREATED        SIZE
+amauryborgesouza/nginx-app   v1        8df1149ce9b1   4 hours ago    141MB
+<none>                       <none>    1ba2d87012b8   7 hours ago    993MB
+node                         latest    e6bed6a65a54   16 hours ago   993MB
+nginx                        latest    c316d5a335a5   32 hours ago   141MB
+mongo                        latest    ee13a1eacac9   2 weeks ago    696MB
+ubuntu                       latest    d13c942271d6   2 weeks ago    72.8MB
+fedora                       latest    b78af7a83692   8 weeks ago    153MB
+nginx                        <none>    87a94228f133   3 months ago   133MB
+hello-world                  latest    feb5d9fea6a5   4 months ago   13.3kB
+alpine                       <none>    14119a10abf4   5 months ago   5.59MB
 ```
