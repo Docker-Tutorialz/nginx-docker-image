@@ -243,3 +243,7 @@ ssasas
 # docker container run -d -p 81:80 amauryborgesouza/nginx-app:v1
 9e918c0c25ebd123fff2903fc339602dd4e6b95968bb8ba2bad9b2c664d3ea63
 ```
+
+- On the browser type your IP address:
+
+![nginx](images/docker2.png)
