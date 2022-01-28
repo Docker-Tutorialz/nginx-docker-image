@@ -6,6 +6,7 @@
 - [Creating the Dockerfile](#Creating-the-Dockerfile)
 - [Listing the Docker image](#Listing-the-Docker-image)
 - [Login on Dockerhub](#Login-on-Dockerhub)
+- [Pushing the Docker image](#Pushing-the-Docker-image)
 
 ### `Installing Docker`
 
@@ -197,4 +198,21 @@ Configure a credential helper to remove this warning. See
 https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
 Login Succeeded
+```
+
+### `Pushing the Docker image`
+
+Let's push the image for *Dockerhub*:
+
+```
+# docker push amauryborgesouza/nginx-app:v1
+The push refers to repository [docker.io/amauryborgesouza/nginx-app]
+016d6b295812: Pushed
+762b147902c0: Mounted from library/nginx
+235e04e3592a: Mounted from library/nginx
+6173b6fa63db: Mounted from library/nginx
+9a94c4a55fe4: Mounted from library/nginx
+9a3a6af98e18: Mounted from library/nginx
+7d0ebbe3f5d2: Mounted from library/nginx
+v1: digest: sha256:1fb2cd964f3b31cb8edea42a46ab4b5c20e937e1b68fbe218d0258b273d868c6 size: 1777
 ```
